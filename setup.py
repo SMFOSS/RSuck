@@ -1,15 +1,13 @@
 from setuptools import setup, find_packages
-import sys, os
 
 version = '0.1'
 
 setup(name='RSuck',
       version=version,
       description="Reverse rsync",
-      long_description="""\
-""",
-      classifiers=[], # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
-      keywords='ssh rsync',
+      long_description=open('README.rst').read(),
+      classifiers=[], 
+      keywords='ssh execnet rsync',
       author='Whit Morriss',
       author_email='whit at surveymonkey.com',
       url='http://surveymonkey.github.com',
@@ -17,10 +15,10 @@ setup(name='RSuck',
       packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
       include_package_data=True,
       zip_safe=False,
-      install_requires=[
-          # -*- Extra requirements: -*-
-      ],
+      install_requires=["path.py",
+                        "execnet"],
       entry_points="""
-      # -*- Entry points: -*-
+      [console_scripts]
+      rsuck=rsuck.rrsync:main
       """,
       )
